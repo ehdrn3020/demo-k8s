@@ -74,6 +74,57 @@ kubectl scale --replicas=3 -f replication-controller/repl_controller_hellow.yml
 kubectl delete -f replication-controller/repl_controller_hellow.yml
 
 
+## Deployments
+
+### create deployment
+kubectl create -f deployment/dp_hellow.yml --record
+
+### get deployments
+kubectl get deployments
+
+
+### get information of replica set
+kubectl get rs
+
+### check pods
+kubectl get pods --show-labels
+
+### get deployment status
+kubectl rollout status deployment/dp-hellow
+
+
+### start dp-hellow service
+kubectl expose deployment dp-hellow --type=NodePort --name node-hellow
+
+minikube service node-hellow --url
+
+
+### run image label version2
+kubectl set image deployment/dp-hellow k8s-demo=wardviaene/k8s-demo:2
+
+### check changed version 
+kubectl rollout status deployment/dp-hellow
+
+### old one is temineted and new one is running
+kubectl get pods --show-labels
+
+### get the rollout history ( need --record when act deployment)
+kubectl rollout history deployment/dp-hellow
+
+### get deployment history details
+kubectl describe deployment dp-hellow
+
+
+### rollback to choosed previous version
+kubectl rollout undo deployment/dp-hellow --to-revision=n
+
+
+### edit the deployment object
+kubectl edit deployment/dp_hellow
+
+
+
+
 
 
 # Deep Kubernetes
