@@ -123,7 +123,13 @@ kubectl rollout undo deployment/dp-hellow --to-revision=n
 kubectl edit deployment/dp_hellow
 
 
+## Service
 
+### start service
+kubectl create -f service/svc_nodeport.yml
+
+### check url
+minikube service service-hellow --url
 
 
 
