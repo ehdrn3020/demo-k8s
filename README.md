@@ -132,5 +132,18 @@ kubectl create -f service/svc_nodeport.yml
 minikube service service-hellow --url
 
 
+# Health check
+
+### start deployment for healthcheck
+kubectl create -f healthcheck/hc_hellow.yml
+
+### check defined liveness information in pod
+kubectl describe pods dp-hellow-13241234
+
+### edit deployment information
+kubectl edit deployment/hc_hellow
+
+
+
 
 # Deep Kubernetes
