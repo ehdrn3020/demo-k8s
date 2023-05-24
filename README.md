@@ -134,14 +134,32 @@ minikube service service-hellow --url
 
 # Health check
 
-### start deployment for healthcheck
-kubectl create -f healthcheck/hc_hellow.yml
+### start liveness deployment for healthcheck
+kubectl create -f healthcheck/hc_liveness_cmd.yml && watch -n1 kubectl get pods
+
+### start readiness deployment for healthcheck
+kubectl create -f healthcheck/hc_readiness_cmd.yml && watch -n1 kubectl get pods
 
 ### check defined liveness information in pod
-kubectl describe pods dp-hellow-13241234
+kubectl describe pods hellow-liveness-13241234
 
 ### edit deployment information
-kubectl edit deployment/hc_hellow
+kubectl edit deployment/hellow-liveness
+
+
+### raise error
+kubectl exec hellow-liveness-68659b8789-rq9wv -- rm -rf /tmp
+
+kubectl exec hellow-readiness-5b7bd74dd8-4zs7d -- rm -rf /tmp
+
+### Check the difference between 'liveness' and 'readiness'
+kubectl get pods
+
+### Reference
+https://bcho.tistory.com/1264
+
+https://velog.io/@hoonki/%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4-Probe
+
 
 
 

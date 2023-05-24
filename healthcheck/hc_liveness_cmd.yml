@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dp-hellow
+  name: hellow-liveness
 spec:
   replicas: 3
   selector:
@@ -19,8 +19,9 @@ spec:
             - name: nodejs-port
               containerPort: 3000
           livenessProbe:
-            httpGet:
-              path: /
-              port: nodejs-port
+            exec:
+              command:
+                - ls
+                - /tmp
             initialDelaySeconds: 15
             timeoutSeconds: 30
