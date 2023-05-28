@@ -1,20 +1,17 @@
 # Install Minikube
 
 ### guide
-```
-https://minikube.sigs.k8s.io/docs/start/
-```
+```https://minikube.sigs.k8s.io/docs/start/```
 
 ### path
-`/opt/homebrew/bin/minikube`
+```/opt/homebrew/bin/minikube```
 
 
 # Basic Kubernetes 
 
 ### namespace
-``kubectl create namespace dgk``
-
-kubectl get namespace
+```kubectl create namespace dgk```
+```kubectl get namespace```
 
 
 ### create pod
