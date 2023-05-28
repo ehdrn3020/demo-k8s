@@ -12,7 +12,7 @@ https://minikube.sigs.k8s.io/docs/start/
 # Basic Kubernetes 
 
 ### namespace
-kubectl create namespace dgk
+``kubectl create namespace dgk``
 
 kubectl get namespace
 
