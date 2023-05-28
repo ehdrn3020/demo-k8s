@@ -241,6 +241,9 @@ container state is from docker cotainer
 
 # Pod Lifecycle
 
+diagram
+<img width="731" alt="스크린샷 2023-05-28 오후 9 04 32" src="https://github.com/ehdrn3020/demo-k8s/assets/20849970/c011f919-1a15-42b9-957e-862db471f793">
+
 
 
 # Deep Kubernetes
