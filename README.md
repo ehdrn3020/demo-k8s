@@ -21,16 +21,19 @@ kubectl get namespace
 
 
 ### create pod
+```
 kubectl create -f tutorial/hellow.yml
-
+```
 
 ### check created pod
+```
 kubectl get pod
-
+```
 
 ### check detail
+```
 kubectl describe pod hellow.com
-
+```
 
 ### create service of two method
 
