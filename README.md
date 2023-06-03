@@ -246,6 +246,50 @@ diagram
 
 <img width="731" alt="스크린샷 2023-05-28 오후 9 04 32" src="https://github.com/ehdrn3020/demo-k8s/assets/20849970/c011f919-1a15-42b9-957e-862db471f793">
 
+### Monitoring Pods
+```
+watch -n1 kubectl get pods
+```
+
+### start deployment
+```
+kubectl create -f pod-lifecycle/lifecycle.yml
+```
+
+### check log
+```
+kubectl get pods
+kubectl exec -it lifecycle-57bd4568f5-57ctd -- cat /timing 
+```
+
+
+# WEB UI
+
+### start dashboard
+```
+minikube dashboard --url
+```
+
+
+# DNS Service Discovery
+
+### start relative secret, deployment, service
+```
+kubectl create -f dns-service/secrets.yaml
+kubectl create -f dns-service/database.yaml
+kubectl create -f dns-service/service-db.yaml
+kubectl create -f dns-service/deployment.yaml
+kubectl create -f dns-service/service-node.yaml
+
+```
+
+### start service
+```
+minikube service service-db-hellow --url
+```
+
+### check connect data log
+
 
 
 # Deep Kubernetes
