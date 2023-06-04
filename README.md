@@ -280,7 +280,6 @@ kubectl create -f dns-service/database.yaml
 kubectl create -f dns-service/service-db.yaml
 kubectl create -f dns-service/deployment.yaml
 kubectl create -f dns-service/service-node.yaml
-
 ```
 
 ### start service
@@ -288,7 +287,41 @@ kubectl create -f dns-service/service-node.yaml
 minikube service service-db-hellow --url
 ```
 
-### check connect data log
+
+# Configmap
+
+### create configmap
+```
+kubectl create configmap nginx-config --from-file=configmap/reverseproxy.conf
+```
+
+### check configmap
+```commandline
+kubectl get configmap
+kubectl get configmap nginx-config -o yaml
+```
+
+### create service appied configmap
+```commandline
+kubectl create -f configmap/nginx.yaml
+kubectl create -f configmap/nginx-service.yaml
+```
+
+### start service 
+```commandline
+minikube service helloworld-nginx-service --url
+```
+
+### check service details
+```commandline
+curl http://127.0.0.1:54757 -vvvv
+```
+
+### find out configmap appied in containers
+```commandline
+kubectl exec -i -t helloworld-nginx -c nginx -- bash
+cat /etc/nginx/conf.d/reverseproxy.conf
+```
 
 
 
