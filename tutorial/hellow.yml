@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: hellow.com
+  name: hellow-com
   labels:
     app: hellow
 spec:
