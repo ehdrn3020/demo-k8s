@@ -8,12 +8,43 @@ https://minikube.sigs.k8s.io/docs/start/
 ### path
 ```/opt/homebrew/bin/minikube```
 
+### dash board
+minikube dashboard
+
+
 
 # Basic Kubernetes 
 
+### context change
+user와 cluster를 매칭한 것이 context이며, 이를 변경하여 다른 환경의 k8s를 활용할 수 있다.
+context 는 kubectl 을 깔면 생성되는 파일인 ~/.kube/config 파일에서 설정한다.
+
+```
+kubectl config get-users
+```
+```
+kubectl config use-context minikube
+```
+```
+kubectl config use-context kubernetes-admin@kubernetes
+```
+
+### .kube/config 파일
+크게 clusters, users, context로 나뉘어져있으며
+kubectl config use-context {context.name} 값을 통해 클러스터 접근 정보를 스위치 할 수 있다.
+
+clusters : 쿠버네티스 클러스터 정보
+users : 클러스터에 접근할 유저 정보
+context : cluster와 user값을 조합으로 하나의 set으로 만들어 k8s에 접근
+current-context : 현재 사용하는 context 지정
+```
+kubectl config view
+```
+
+
 ### namespace
 ```
-kubectl create namespace dgk
+kubectl create namespace myNameSpace
 ```
 ```
 kubectl get namespace
@@ -64,19 +95,6 @@ kubectl attach hellow.com -n dgk
 ```
 kubectl exec hellow.com -n dgk -- ls /app
 ```
-
-### context change
-user와 cluster를 매칭한 것이 context이며, 이를 변경하여 다른 환경의 k8s를 활용할 수 있다.
-```
-kubectl config get-users
-```
-```
-kubectl config use-context minikube
-```
-```
-kubectl config use-context kubernetes-admin@kubernetes
-```
-
 
 
 # More Kubernetes
@@ -263,14 +281,6 @@ kubectl exec -it lifecycle-57bd4568f5-57ctd -- cat /timing
 ```
 
 
-# WEB UI
-
-### start dashboard
-```
-minikube dashboard --url
-```
-
-
 # DNS Service Discovery
 
 ### start relative secret, deployment, service
@@ -309,7 +319,7 @@ kubectl create -f configmap/nginx-service.yaml
 
 ### start service 
 ```commandline
-minikube service helloworld-nginx-service --url
+minikube service helloworld-nginx-service --urlÏ
 ```
 
 ### check service details
@@ -323,6 +333,9 @@ kubectl exec -i -t helloworld-nginx -c nginx -- bash
 cat /etc/nginx/conf.d/reverseproxy.conf
 ```
 
+
+minikube addons enable ingress
+kubectl get svc -n ingress-nginx
 
 
 # Deep Kubernetes
