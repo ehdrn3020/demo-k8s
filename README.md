@@ -33,10 +33,10 @@ kubectl config use-context kubernetes-admin@kubernetes
 크게 clusters, users, context로 나뉘어져있으며
 kubectl config use-context {context.name} 값을 통해 클러스터 접근 정보를 스위치 할 수 있다.
 
-clusters : 쿠버네티스 클러스터 정보
-users : 클러스터에 접근할 유저 정보
-context : cluster와 user값을 조합으로 하나의 set으로 만들어 k8s에 접근
-current-context : 현재 사용하는 context 지정
+* clusters : 쿠버네티스 클러스터 정보
+* users : 클러스터에 접근할 유저 정보
+* context : cluster와 user값을 조합으로 하나의 set으로 만들어 k8s에 접근
+* current-context : 현재 사용하는 context 지정
 ```
 kubectl config view
 ```
