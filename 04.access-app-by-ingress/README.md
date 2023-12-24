@@ -1,11 +1,13 @@
 # Access App By Ingress
+
 - Hello World 파드를 실행한다.
 - 외부에서 접근하기 위한 서비스를 생성한다.
 - 실행 중인 애플리케이션에 접근해본다.
 
 
 
-# Deployments
+# Pod
+
 'Hello, world!'를 출력하는 이미지를 파드로 생성한다.
 ```
 kubectl run --port 8080 --image gcr.io/google-samples/hello-app:1.0 --restart Never helloworld -n test
@@ -49,6 +51,7 @@ curl http://<external-ip>:<port>
 
 
 # Ingress
+
 인그레스는 외부에서 서비스로 접속이 가능한 가상 호스팅을 제공하며,
 HTTP와 HTTPS 이외의 서비스를 인터넷에 노출하려면 보통 아래 두가지 유형의 서비스를 사용한다.
 - Service.Type=NodePort 또는
