@@ -1,4 +1,4 @@
-# Setting Redis Using Configmap
+# Access App By Ingress
 - Hello World 파드를 실행한다.
 - 외부에서 접근하기 위한 서비스를 생성한다.
 - 실행 중인 애플리케이션에 접근해본다.
