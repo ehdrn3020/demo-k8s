@@ -319,7 +319,7 @@ kubectl create -f configmap/nginx-service.yaml
 
 ### start service 
 ```commandline
-minikube service helloworld-nginx-service --urlÏ
+minikube service helloworld-nginx-service --url
 ```
 
 ### check service details

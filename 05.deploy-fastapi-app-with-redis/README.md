@@ -54,9 +54,30 @@ kubectl apply -f redis-follower-service.yaml -n test
 
 
 
-# 방명록 프론트엔드
+# FAST API
+
+도커파일로 fastapi 이미지 빌드
+```commandline
+docker build -t test/fastapi-app:1.0.0 .
+```
+
+로컬 이미지 minikube에 인식가능하도록 upload
+```commandline
+minikube image load test/fastapi-app:1.0.0
+minikube image ls
+```
 
 매니페스트 파일을 이용하여 프론트엔드 디플로이먼트를 생성한다.
 ```commandline
-kubectl apply -f front-deployment.yaml -n test
+kubectl apply -f fastapi-deployment.yaml -n test
+```
+
+서비스 생성
+```commandline
+kubectl apply -f fastapi-service.yaml -n test
+```
+
+minikube 일 경우 service를 따로 실행
+```commandline
+minikube service fastapi-app -n test
 ```
